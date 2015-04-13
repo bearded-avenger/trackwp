@@ -8,7 +8,7 @@
  * @copyright 2015 Aesopinteractive LLC2015 Aesopinteractive LLC
  *
  * @wordpress-plugin
- * TrackWP       TrackWP
+ * Plugin Name:      TrackWP
  * Plugin URI:        http://nickhaskins.com
  * Description:       A tracking framework for segmentio
  * Version:           1.0.0
@@ -46,7 +46,7 @@ add_action( 'plugins_loaded', array( 'TrackWP', 'get_instance' ) );
  * Dashboard and Administrative Functionality
  *----------------------------------------------------------------------------*/
 
-if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+if ( is_admin() ) {
 
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-trackwp-admin.php' );
 	add_action( 'plugins_loaded', array( 'TrackWP_Admin', 'get_instance' ) );
