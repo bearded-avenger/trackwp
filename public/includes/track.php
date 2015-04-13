@@ -5,7 +5,7 @@
 *
 *	@since 1.0
 */
-class trackWPInit {
+class trackWP {
 
 	public function __construct(){
 
@@ -105,4 +105,4 @@ class trackWPInit {
 	}
 
 }
-new trackWPInit();
+new trackWP();

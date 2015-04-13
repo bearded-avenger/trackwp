@@ -1,8 +1,8 @@
 This plugin builds an API interface to allow you to hook and and send events to segmentio. It currently supports three interface calls:  
 
-`trackWPInit::identify_user( $user_id = '', $traits = array() )`  
-`trackWPInit::track_event( $event = '', $props = array(), $traits = array(), $user_id = '' )`  
-`trackWPInit::track_page( $pagename = '', $props = array(), $traits = array() )`  
+`trackWP::identify_user( $user_id = '', $traits = array() )`  
+`trackWP::track_event( $event = '', $props = array(), $traits = array(), $user_id = '' )`  
+`trackWP::track_page( $pagename = '', $props = array(), $traits = array() )`  
 
 Here are a few examples of how to track things and such.  
 
@@ -26,8 +26,8 @@ function my_track_login( $user_login, $user ) {
 
 	$props = array();
 
-	trackWPInit::identify_user( $user_id, $traits );
-	trackWPInit::track_event( 'user_login', $props, $traits, $user_id );
+	trackWP::identify_user( $user_id, $traits );
+	trackWP::track_event( 'user_login', $props, $traits, $user_id );
 
 }
 
@@ -61,7 +61,7 @@ function my_track_purchase( $payment_id ) {
 		'products' => $products
 	);
 
-	trackWPInit::track_event( 'purchased', $props, $traits, $user_id );
+	trackWP::track_event( 'purchased', $props, $traits, $user_id );
 }
 
 ```

@@ -37,10 +37,10 @@ define('TRACKWP_URL', plugins_url( '', __FILE__ ));
 
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-trackwp.php' );
 
-register_activation_hook( __FILE__, array( 'TrackWP', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'TrackWP', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'TrackWPInit', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'TrackWPInit', 'deactivate' ) );
 
-add_action( 'plugins_loaded', array( 'TrackWP', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'TrackWPInit', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality

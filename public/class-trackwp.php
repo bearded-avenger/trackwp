@@ -14,7 +14,7 @@
  * @package TrackWP
  * @author  Nick Haskins <email@nickhaskins.com>
  */
-class TrackWP {
+class TrackWPInit {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.

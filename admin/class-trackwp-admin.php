@@ -41,7 +41,7 @@ class TrackWP_Admin {
 	 */
 	private function __construct() {
 
-		$plugin = TrackWP::get_instance();
+		$plugin = TrackWPInit::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		require_once TRACKWP_DIR.'/admin/includes/settings.php';
