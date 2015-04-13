@@ -30,7 +30,9 @@ function my_track_login( $user_login, $user ) {
 	trackWP::track_event( 'user_login', $props, $traits, $user_id );
 
 }
+```
 
+```
 /**
 *	Track a purchase with Easy Digital Downloads
 */
@@ -63,7 +65,9 @@ function my_track_purchase( $payment_id ) {
 
 	trackWP::track_event( 'purchased', $props, $traits, $user_id );
 }
+```
 
+```
 /**
 *	Track a lead from Optin Monster
 */
