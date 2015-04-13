@@ -11,7 +11,7 @@
  * Plugin Name:      TrackWP
  * Plugin URI:        http://nickhaskins.com
  * Description:       A tracking framework for segmentio
- * Version:           1.0.0
+ * Version:           0.5 - beta
  * Author:            Nick Haskins
  * Author URI:        http://nickhaskins.com
  * Text Domain:       trackwp-locale
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Set some constants
-define('TRACKWP_VERSION', '0.0.1');
+define('TRACKWP_VERSION', '0.5');
 define('TRACKWP_DIR', plugin_dir_path( __FILE__ ));
 define('TRACKWP_URL', plugins_url( '', __FILE__ ));
 /*----------------------------------------------------------------------------*

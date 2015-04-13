@@ -3,7 +3,7 @@
 /**
 *	Class responsible for sending track and identify events
 *
-*	@since 1.0
+*	@since 0.5
 */
 class trackWP {
 
@@ -22,7 +22,7 @@ class trackWP {
 	*	@param $user_id int id of the user to identify - if empty gets the current use rid
 	*	@param $traits array data to be passed - if the user is logged in then it grabs their name and email
 	*
-	*	@since 1.0
+	*	@since 0.5
 	*/
 	public static function identify_user( $user_id = '', $traits = array() ) {
 
@@ -61,13 +61,13 @@ class trackWP {
 	*	@param $traits array data to be passed - if the user is logged in then it grabs their name and email
 	*	@param $user_id int id of the user to track the event for - if no user id (not part of site) then use a session id
 	*
-	*	@since 1.0
+	*	@since 0.5
 	*/
 	public static function track_event( $event = '', $props = array(), $traits = array(), $user_id = '' ) {
 
 		# If no event name is passed, return
 		if ( empty( $event ) ) {
-			return false;
+			return;
 		}
 
 		if ( empty( $user_id ) ) {
@@ -99,7 +99,7 @@ class trackWP {
 	*	@param $props array data to be passed - if the user is logged in then it grabs their name and email
 	*	@param $traits array data to be passed - if the user is logged in then it grabs their name and email
 	*
-	*	@since 1.0
+	*	@since 0.5
 	*/
 	public static function track_page( $pagename = '', $props = array(), $traits = array() ) {
 
