@@ -27,6 +27,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Set some constants
+define('TRACKWP_VERSION', '0.0.1');
+define('TRACKWP_DIR', plugin_dir_path( __FILE__ ));
+define('TRACKWP_URL', plugins_url( '', __FILE__ ));
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
