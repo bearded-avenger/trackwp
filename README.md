@@ -38,7 +38,7 @@ add_action( 'edd_complete_purchase', 'my_track_purchase', 10, 1 );
 function my_track_purchase( $payment_id ) {
 
 	$userInfo = edd_get_payment_meta_user_info( $payment_id);
-	$user_id = get_current_user_id();
+	$user_id = edd_get_payment_user_id( $payment_id );
 
 	$traits = array(
 		'userId' 	=> is_user_logged_in() ? $user_id : session_id(),
@@ -64,4 +64,30 @@ function my_track_purchase( $payment_id ) {
 	trackWP::track_event( 'purchased', $props, $traits, $user_id );
 }
 
+/**
+*	Track a lead from Optin Monster
+*/
+add_action( 'optin_monster_after_lead_stored', 'my_track_lead' , 10, 2 );
+public function my_track_lead( $lead, $class_object ) {
+
+	$email = $lead['lead_email'];
+
+	$props = array(
+		'optin_id' 		=> $lead['optin_id'],
+    	'lead_type' 	=> $lead['lead_type'],
+    	'lead_email' 	=> $lead['lead_email'],
+    	'created'		=> time()
+	);
+
+	trackWP::track_event( 'purchased', $props );
+}
+
 ```
+
+
+
+
+
+
+
+

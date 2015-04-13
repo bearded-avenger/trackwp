@@ -74,6 +74,14 @@ class trackWP {
 			$user_id = session_id();
 		}
 
+		if ( empty( $traits ) ) {
+
+			$traits = array(
+				'userId' => is_user_logged_in() ? get_current_user_id() : session_id()
+			);
+
+		}
+
 		TWPAnalytics::track(
 			array(
 				'userId' 		=> $user_id,
