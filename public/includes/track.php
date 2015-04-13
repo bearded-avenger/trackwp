@@ -9,9 +9,7 @@ class trackWP {
 
 	public function __construct(){
 
-		$options = get_option( 'trackwp' );
-
-		$key = !empty( $options['segment_write_key'] ) ? trim( $options['segment_write_key'] ) : false;
+		$key   = trackwp_get_option( 'segment_write_key', 'trackwp' );
 
 		class_alias( 'Segment', 'TrackWP' );
 		TrackWP::init( $key );
