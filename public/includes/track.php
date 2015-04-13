@@ -24,7 +24,7 @@ class trackWPInit {
 	*
 	*	@since 1.0
 	*/
-	public static function identify( $user_id = '', $traits = array() ) {
+	public static function identify_user( $user_id = '', $traits = array() ) {
 
 		if ( empty( $user_id ) ) {
 			$user_id = get_current_user_id();
@@ -63,7 +63,7 @@ class trackWPInit {
 	*
 	*	@since 1.0
 	*/
-	public static function track( $event = '', $props = array(), $traits = array(), $user_id = '' ) {
+	public static function track_event( $event = '', $props = array(), $traits = array(), $user_id = '' ) {
 
 		# If no event name is passed, return
 		if ( empty( $event ) ) {
@@ -93,7 +93,7 @@ class trackWPInit {
 	*
 	*	@since 1.0
 	*/
-	public static function page( $pagename = '', $props = array(), $traits = array() ) {
+	public static function track_page( $pagename = '', $props = array(), $traits = array() ) {
 
 		TWPAnalytics::page(
 			array(
