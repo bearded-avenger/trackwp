@@ -120,7 +120,7 @@ class trackWPSettings {
 					<div class="trackwp-settings--option-inner">
 						<label><?php _e( 'Segment Write Key', 'trackwp' );?></label>
 						<span class="trackwp--setting-description"><?php _e( 'Segment Write Key.', 'trackwp' );?></span>
-						<input required type="text" name="trackwp[segment_write_key]" id="trackwp[segment_write_key]" value="<?php echo esc_attr( $segment_key );?>" >
+						<input required type="password" name="trackwp[segment_write_key]" id="trackwp[segment_write_key]" value="<?php echo esc_attr( $segment_key );?>" >
 					</div>
 				</div>
 
