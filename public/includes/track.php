@@ -5,14 +5,14 @@
 *
 *	@since 1.0
 */
-class trackWP {
+class trackWPInit {
 
 	public function __construct(){
 
 		$key   = trackwp_get_option( 'segment_write_key', 'trackwp' );
 
-		class_alias( 'Segment', 'TrackWP' );
-		TrackWP::init( $key );
+		class_alias( 'Segment', 'TWPAnalytics' );
+		TWPAnalytics::init( $key );
 
 	}
 
@@ -48,7 +48,7 @@ class trackWP {
 			'traits' => $traits
 		);
 
-		TrackWP::identify( $args );
+		TWPAnalytics::identify( $args );
 
 		return $args;
 	}
@@ -74,7 +74,7 @@ class trackWP {
 			$user_id = session_id();
 		}
 
-		TrackWP::track(
+		TWPAnalytics::track(
 			array(
 				'userId' 		=> $user_id,
 				'event' 		=> $event,
@@ -95,7 +95,7 @@ class trackWP {
 	*/
 	public static function page( $pagename = '', $props = array(), $traits = array() ) {
 
-		TrackWP::page(
+		TWPAnalytics::page(
 			array(
 				'userId' 		=> is_user_logged_in() ? get_current_user_id() : session_id(),
 				'name' 			=> $pagename,
@@ -105,3 +105,4 @@ class trackWP {
 	}
 
 }
+new trackWPInit();
