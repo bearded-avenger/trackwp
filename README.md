@@ -1,6 +1,9 @@
 This plugin builds an API interface to allow you to hook and and send events to segmentio. Here are a few examples:
 
 ```
+/**
+*	Track a Login
+*/
 add_action('wp_login', 'my_track_login', 10, 2);
 function my_track_login( $user_login, $user ) {
 
@@ -18,8 +21,41 @@ function my_track_login( $user_login, $user ) {
 	$props = array();
 
 	trackWPInit::identify( $user_id, $traits );
-	trackWPInit::track( 'User Login', $props, $traits, $user_id );
+	trackWPInit::track( 'user_login', $props, $traits, $user_id );
 
+}
+
+/**
+*	Track a purchase with Easy Digital Downloads
+*/
+add_action( 'edd_complete_purchase', 'my_track_purchase', 10, 1 );
+function my_track_purchase( $payment_id ) {
+
+	$userInfo = edd_get_payment_meta_user_info( $payment_id);
+	$user_id = get_current_user_id();
+
+	$traits = array(
+		'userId' 	=> is_user_logged_in() ? $user_id : session_id(),
+		'firstName' => $userInfo[ 'first_name' ],
+		'lastName' 	=> $userInfo[ 'last_name' ],
+		'email' 	=> $userInfo[ 'email' ],
+	);
+
+	$downloads = edd_get_payment_meta_cart_details( $payment_id );
+	$products = array();
+
+	foreach( $downloads as $download ) {
+		$products[] = get_the_title( $download['id'] );
+	}
+
+	$props = array(
+		'trans_id' 	=> edd_get_payment_transaction_id( $payment_id ),
+		'total' 	=> edd_get_payment_amount( $payment_id ),
+		'time' 		=> strtotime( edd_get_payment_completed_date( $payment_id ) ),
+		'products' => $products
+	);
+
+	trackWPInit::track( 'purchased', $props, $traits, $user_id );
 }
 
 ```
