@@ -75,13 +75,13 @@ class trackWP {
 		}
 
 		if ( empty( $user_id ) ) {
-			$user_id = session_id();
+			$user_id = rand();
 		}
 
 		if ( empty( $traits ) ) {
 
 			$traits = array(
-				'userId' => is_user_logged_in() ? get_current_user_id() : session_id()
+				'userId' => is_user_logged_in() ? get_current_user_id() : rand()
 			);
 
 		}
@@ -109,7 +109,7 @@ class trackWP {
 
 		TWPAnalytics::page(
 			array(
-				'userId' 		=> is_user_logged_in() ? get_current_user_id() : session_id(),
+				'userId' 		=> is_user_logged_in() ? get_current_user_id() : rand(),
 				'name' 			=> $pagename,
 				'properties' 	=> $props
 			)
