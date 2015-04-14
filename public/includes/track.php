@@ -11,8 +11,12 @@ class trackWP {
 
 		$key   = trackwp_get_option( 'segment_write_key', 'trackwp' );
 
-		class_alias( 'Segment', 'TWPAnalytics' );
-		TWPAnalytics::init( trim( $key ) );
+		if ( !empty( $key ) ) {
+
+			class_alias( 'Segment', 'TWPAnalytics' );
+			TWPAnalytics::init( trim( $key ) );
+
+		}
 
 	}
 
