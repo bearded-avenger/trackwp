@@ -1,3 +1,5 @@
+## TrackWP
+
 This plugin builds an API interface to allow you to hook and and send events to segmentio. When you activate it within WordPress, you'll need to enter your Segment Write Key into the options under Tools-->Track WP. By default nothing is tracked, that's up to you. This just provies and API that bridges the gab between WordPress and Segment. It currently supports three interface calls:  
 
 `trackWP::identify_user( $user_id = '', $traits = array() )`  
