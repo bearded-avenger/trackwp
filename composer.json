@@ -1,0 +1,9 @@
+{
+   "name": "aesop/trackwp",
+   "type": "wordpress-plugin",
+   "description": "Integration with Segment.com",
+   "keywords": ["plugin","wordpress","tracking","segment"],
+   "require": {
+     "composer/installers": "~1.0.6"
+   }
+}
