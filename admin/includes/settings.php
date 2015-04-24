@@ -107,7 +107,9 @@ class trackWPSettings {
 		if ( !is_user_logged_in() )
 			return;
 
+
 		$segment_key   = trackwp_get_option( 'segment_write_key', 'trackwp' );
+		$logging   = 'on' == trackwp_get_option( 'file_logging', 'trackwp' );
 
 ?>
 		<div class="wrap">
@@ -124,6 +126,13 @@ class trackWPSettings {
 					</div>
 				</div>
 
+				<div class="trackwp-settings--option-wrap">
+					<div class="trackwp-settings--option-inner">
+						<label><?php _e( 'Use File Logging', 'trackwp' );?></label>
+						<span class="trackwp--setting-description"><?php _e( 'Enable File Logging.', 'trackwp' );?></span>
+						<input type="checkbox" name="trackwp[file_logging]" id="trackwp[file_logging]" <?php echo checked( $logging, 1 );?> >
+					</div>
+				</div>
 
 				<div class="trackwp-settings--submit">
 				    <input type="hidden" name="action" value="trackwp-settings" />

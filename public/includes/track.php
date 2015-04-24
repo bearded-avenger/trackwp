@@ -10,11 +10,20 @@ class trackWP {
 	public function __construct(){
 
 		$key   = trackwp_get_option( 'segment_write_key', 'trackwp' );
+		$logging   = trackwp_get_option( 'file_logging', 'trackwp' );
 
 		if ( !empty( $key ) ) {
 
 			class_alias( 'Segment', 'TWPAnalytics' );
-			TWPAnalytics::init( trim( $key ) );
+
+			$args = array(
+				'consumer' => 'file',
+		    	'filename' => TRACKWP_DIR.'analytics.log'
+			);
+
+			$options = 'on' == $logging ? $args : false;
+
+			TWPAnalytics::init(	trim( $key ), $options );
 
 		}
 
