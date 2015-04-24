@@ -42,6 +42,7 @@ class trackWP {
 				'firstName' 	=> $user->first_name,
 				'lastName' 		=> $user->last_name,
 				'email' 		=> $user->user_email,
+				'createdAt'		=> strtotime( $user->user_registered ),
 				'username' 		=> $user->user_login
 			);
 		}
